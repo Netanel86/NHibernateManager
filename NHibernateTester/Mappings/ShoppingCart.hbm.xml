@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2"
+                  assembly="NHibernateTester"
+                   namespace="NHibernateTester.Model">
+  
+  <class name="ShoppingCart">
+    <id name="Id">
+      <generator class="guid.comb"/>
+    </id>
+
+    <set name="Products" table="Product" cascade="all-delete-orphan" >
+      <key column="ShoppingCartId" />
+      <one-to-many class="Product" />
+    </set>
+    
+  </class>
+</hibernate-mapping>
